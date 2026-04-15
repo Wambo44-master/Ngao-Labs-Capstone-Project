@@ -12,3 +12,4 @@ Without answers to these questions, policymakers and transport authorities canno
 
 This project addresses this gap by developing a data-driven analysis that quantifies pedestrian risk patterns and provides evidence-based recommendations for road safety improvement. The findings will help answer the critical question: Where should Kenya focus its pedestrian safety efforts to achieve the greatest impact?
 
+Live Demo : https://ngao-labs-capstone-project-dn2vgp6nagg9dfnkedkwnn.streamlit.app/
