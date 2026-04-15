@@ -173,6 +173,36 @@ print("🚀 ARIMA Forecast for Pedestrian Killed:")
 print("2022:", round(forecast.iloc[0], 0))
 print("2023:", round(forecast.iloc[1], 0))
 
+years_actual = [2018, 2019, 2020, 2021] # dates
+actual_values = [882, 1144, 1109, 1248]  #Pedestrian numbers
+years_forecast = [2022, 2023]
+forecast_values = [round(forecast.iloc[0], 0), round(forecast.iloc[1], 0)]
+
+# Create the plot
+plt.figure(figsize=(10, 6))
+
+# Plot actual data
+plt.plot(years_actual, actual_values, 'b-o', linewidth=2, markersize=8, label='Actual')
+
+# Plot forecast
+plt.plot(years_forecast, forecast_values, 'r--o', linewidth=2, markersize=8, label='Forecast')
+plt.title('Pedestrian Fatalities in Kenya: ARIMA Forecast', fontsize=14, fontweight='bold')
+plt.xlabel('Year', fontsize=12)
+plt.ylabel('Number of Pedestrian Fatalities', fontsize=12)
+plt.legend(fontsize=11)
+plt.grid(True, alpha=0.3)
+plt.xticks(years_actual + years_forecast)
+
+# Add value labels on points
+for i, (year, value) in enumerate(zip(years_actual, actual_values)):
+    plt.annotate(f'{int(value)}', (year, value), textcoords="offset points", xytext=(0,10), ha='center')
+
+for i, (year, value) in enumerate(zip(years_forecast, forecast_values)):
+    plt.annotate(f'{int(value)}', (year, value), textcoords="offset points", xytext=(0,10), ha='center')
+
+plt.tight_layout()
+plt.show()
+
 # Save the engineered dataset for future use
 df_pivot.to_excel('engineered_road_casualties.xlsx', index=False)
 files.download('engineered_road_casualties.xlsx')
